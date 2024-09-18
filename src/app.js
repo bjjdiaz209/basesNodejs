@@ -1,15 +1,22 @@
+const { clear } = require('winston');
 const {getAge , getUUID} = require('./plugins');
 
 //const {emailTemplate} =  require('./js-foundations/01-template');
 
 //const {getUserById} = require('./js-foundations/04-arrow');
 
-const getPokemonById = require('./js-foundations/06-promises')
+//const getPokemonById = require('./js-foundations/06-promises')
 
-getPokemonById(4)
-.then((pokemon)=> console.log({pokemon}))
-.catch((err) => console.log('por favor intente de nuevo'))
-.finally(() => console.log('finalmente'))
+  const {buildLogger} = require('./plugins');
+
+const logger = buildLogger('app.js');
+logger.log('mensaje de prueba');
+logger.error('mensaje de error');
+
+//getPokemonById(4)
+//.then((pokemon)=> console.log({pokemon}))
+//.catch((err) => console.log(err))
+//.finally(() => console.log('finalmente'))
 
 
 // ! referencia a la funcion factory y uso
